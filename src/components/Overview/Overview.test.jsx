@@ -1,5 +1,5 @@
 import '@testing-library/react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import Overview from './index';
 
@@ -10,8 +10,8 @@ describe('Overview component tests' ,() =>{
     });
 
     it('should have a list of items', ()=>{
-        const view = render(<Overview />);
-        const list = view.findAllByTestId('overview-item');
-        expect(list.length).toBe(10);
+        render(<Overview />);
+        const listElement = screen.getByTestId('overview-list');
+        expect(listElement).toBeInTheDocument();
     });
 });   
