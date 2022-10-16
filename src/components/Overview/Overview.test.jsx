@@ -8,4 +8,10 @@ describe('Overview component tests' ,() =>{
         const view = render(<Overview />);
         expect(view.baseElement).toBeInTheDocument();
     });
+
+    it('should have a list of items', ()=>{
+        const view = render(<Overview />);
+        const list = view.findAllByTestId('overview-item');
+        expect(list.length).toBe(10);
+    });
 });   
