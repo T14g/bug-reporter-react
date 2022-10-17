@@ -14,4 +14,10 @@ describe('Overview component tests' ,() =>{
         const listElement = screen.getByTestId('overview-list');
         expect(listElement).toBeInTheDocument();
     });
+
+    it('list item should have a description', ()=>{
+        render(<Overview />);
+        const listItemElements = screen.getAllByTestId('list-item');
+        expect(listItemElements[0].textContent).toBe('123');
+    });
 });   
